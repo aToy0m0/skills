@@ -1,6 +1,6 @@
 ---
 name: generate-docs
-description: プロジェクトのコードを分析し、包括的な技術ドキュメントを自動生成する。プロジェクト解説書、APIリファレンス、セットアップガイドを作成。「ドキュメントを生成」「解説書を作成」「プロジェクトを説明」と言われたときに使用。
+description: Analyze a project's codebase and automatically generate comprehensive technical documentation (overview, API reference, setup guide). Use when asked to "generate docs", "create documentation", or "explain this project".
 allowed-tools:
   - Read
   - Write
@@ -10,156 +10,156 @@ allowed-tools:
   - Bash(mkdir:*)
 ---
 
-# プロジェクトドキュメント自動生成スキル
+# Project Documentation Auto-Generation Skill
 
-## 概要
+## Overview
 
-このスキルは、プロジェクトのソースコードを分析し、以下のドキュメントを自動生成します：
+This skill analyzes a project's source code and generates the following documents:
 
-1. **概要解説書** (`overview.md`) - プロジェクト全体の説明、アーキテクチャ図、処理フロー
-2. **APIリファレンス** (`api-reference.md`) - エンドポイント一覧、リクエスト/レスポンス例
-3. **セットアップガイド** (`setup-guide.md`) - 環境構築、運用コマンド、トラブルシューティング
-4. **インデックス** (`index.md`) - ドキュメント一覧とクイックスタート
+1. **Project Overview** (`overview.md`) - what the project does, architecture diagram, core flows
+2. **API Reference** (`api-reference.md`) - endpoints list, request/response examples
+3. **Setup Guide** (`setup-guide.md`) - prerequisites, setup steps, operational commands, troubleshooting
+4. **Index** (`index.md`) - document index and quick start
 
-## 使用方法
+## Usage
 
 ```
-/generate-docs [出力ディレクトリ]
+/generate-docs [output-directory]
 ```
 
-引数が省略された場合は `docs/` に出力します。
+If omitted, output defaults to `docs/`.
 
-## 実行手順
+## Workflow
 
-### ステップ1: プロジェクト構造の把握
+### Step 1: Understand the project structure
 
-1. プロジェクトのディレクトリ構造を確認
-2. 主要なファイル（README.md, docker-compose.yml, requirements.txt等）を読み込み
-3. エントリーポイント（main.py, app.py, index.ts等）を特定
+1. Inspect the directory structure
+2. Read key files (e.g., `README.md`, `docker-compose.yml`, `requirements.txt`, `package.json`)
+3. Identify entry points (e.g., `main.py`, `app.py`, `src/index.ts`)
 
-### ステップ2: コード分析
+### Step 2: Analyze the code
 
-1. 主要モジュールのシンボル概要を取得
-2. 外部連携（API、データベース）を特定
-3. 設定ファイル・環境変数を収集
+1. Extract symbol/structure summaries for major modules
+2. Identify integrations (APIs, databases, external services)
+3. Collect configuration files and environment variables
 
-### ステップ3: ドキュメント生成
+### Step 3: Generate documentation
 
-各ドキュメントは以下のテンプレートに従って生成:
+Generate each document following the templates below (full templates: `TEMPLATES.md`).
 
-#### overview.md テンプレート
+#### `overview.md` template
 
 ```markdown
-# {プロジェクト名} 解説書
+# {Project Name} - Technical Overview
 
-## 1. プロジェクト概要
-### 1.1 目的
-### 1.2 主な機能
-### 1.3 対象ユーザー
+## 1. Project Overview
+### 1.1 Purpose
+### 1.2 Key Features
+### 1.3 Intended Users
 
-## 2. システム構成
-### 2.1 アーキテクチャ図（Mermaid）
-### 2.2 コンポーネント一覧
+## 2. System Architecture
+### 2.1 Architecture Diagram (Mermaid)
+### 2.2 Components
 
-## 3. 処理フロー
-### 3.1 主要フロー（Mermaidシーケンス図）
+## 3. Core Flows
+### 3.1 Main Flow (Mermaid sequence diagram)
 
-## 4. データモデル
-### 4.1 ER図（Mermaid）
-### 4.2 テーブル説明
+## 4. Data Model
+### 4.1 ER Diagram (Mermaid)
+### 4.2 Table/Entity Notes
 
-## 5. ファイル構成
-### ディレクトリツリー
+## 5. Repository Structure
+### Directory Tree
 
-## 6. 主要モジュール解説
-### 各モジュールの役割と主要関数
+## 6. Key Modules
+### Responsibilities and important functions/classes
 
-## 7. 環境変数一覧
-### 表形式でまとめ
+## 7. Environment Variables
+### Table format
 
-## 8. セキュリティ
-### 認証・権限・暗号化
+## 8. Security
+### Auth, authorization, encryption
 
-## 9. 運用時の注意点
+## 9. Operational Notes
 
-## 10. 今後の拡張ポイント
+## 10. Future Improvements
 ```
 
-#### api-reference.md テンプレート
+#### `api-reference.md` template
 
 ```markdown
-# API リファレンス
+# API Reference
 
-## 認証
-### ログイン/ログアウト
+## Authentication
+### Login / Logout
 
-## エンドポイント一覧
-### 各エンドポイント
-- メソッド・パス
-- パラメータ（表形式）
-- リクエスト例
-- レスポンス例
+## Endpoints
+### Each endpoint
+- method + path
+- parameters (table)
+- request example
+- response example
 
-## エラーレスポンス
-### HTTPステータスコード一覧
+## Error Responses
+### HTTP status codes
 ```
 
-#### setup-guide.md テンプレート
+#### `setup-guide.md` template
 
 ```markdown
-# セットアップ・運用ガイド
+# Setup & Operations Guide
 
-## 1. 前提条件
-### 必要なソフトウェア
+## 1. Prerequisites
+### Required software
 
-## 2. 初回セットアップ
-### 環境変数設定
-### 起動コマンド
+## 2. First-time Setup
+### Environment variables
+### Run commands
 
-## 3. Docker環境の注意点
+## 3. Docker Notes (if applicable)
 
-## 4. 運用コマンド
-### コンテナ操作
-### データベース操作
+## 4. Operations
+### Container commands
+### Database commands
 
-## 5. トラブルシューティング
-### よくあるエラーと対処法
+## 5. Troubleshooting
+### Common issues and fixes
 
-## 6. バックアップ
+## 6. Backups
 
-## 7. 本番環境向け設定
-### セキュリティチェックリスト
+## 7. Production Configuration
+### Security checklist
 ```
 
-## Mermaid図の生成ルール
+## Mermaid diagram rules
 
-### アーキテクチャ図
+### Architecture diagram
 ```mermaid
 graph TB
-    subgraph ユーザー
-        Browser[ブラウザ]
+    subgraph Users
+        Browser[Browser]
     end
-    subgraph サーバー
-        App[アプリケーション]
-        DB[(データベース)]
+    subgraph Server
+        App[Application]
+        DB[(Database)]
     end
     Browser --> App
     App --> DB
 ```
 
-### シーケンス図
+### Sequence diagram
 ```mermaid
 sequenceDiagram
-    participant U as ユーザー
-    participant S as サーバー
-    participant D as データベース
-    U->>S: リクエスト
-    S->>D: クエリ
-    D-->>S: 結果
-    S-->>U: レスポンス
+    participant U as User
+    participant S as Server
+    participant D as Database
+    U->>S: Request
+    S->>D: Query
+    D-->>S: Result
+    S-->>U: Response
 ```
 
-### ER図
+### ER diagram
 ```mermaid
 erDiagram
     User ||--o{ Order : has
@@ -173,16 +173,16 @@ erDiagram
     }
 ```
 
-## 出力品質のルール
+## Output quality rules
 
-1. **日本語で記述** - 技術用語は適宜英語を併記
-2. **Mermaid図を積極的に使用** - 視覚的な理解を促進
-3. **表形式を活用** - パラメータ、環境変数、エンドポイント等
-4. **コード例を含める** - リクエスト/レスポンス、設定例
-5. **初心者にも分かりやすく** - 段階的な説明、用語の解説
+1. **Write in English** (keep proper nouns as-is; add Japanese only if explicitly requested)
+2. **Use Mermaid diagrams proactively** for visual understanding
+3. **Prefer tables** for parameters, env vars, endpoints, etc.
+4. **Include runnable examples** when possible (requests, responses, config)
+5. **Make it approachable** (explain terms briefly; step-by-step where helpful)
 
-## 注意事項
+## Notes
 
-- 既存のドキュメント（README.md等）は上書きしない
-- 生成前にdocsディレクトリの存在を確認
-- 秘密情報（APIキー等）はマスキング（`your-api-key-here`等）
+- Do not overwrite existing docs (e.g., `README.md`)
+- Ensure the output directory exists (create if missing)
+- Mask secrets (API keys, tokens) using placeholders like `your-api-key-here`
