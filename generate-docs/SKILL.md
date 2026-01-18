@@ -8,11 +8,6 @@ allowed-tools:
   - Grep
   - Bash(ls:*)
   - Bash(mkdir:*)
-  - mcp__plugin_serena_serena__list_dir
-  - mcp__plugin_serena_serena__read_file
-  - mcp__plugin_serena_serena__get_symbols_overview
-  - mcp__plugin_serena_serena__find_symbol
-  - mcp__plugin_serena_serena__create_text_file
 ---
 
 # プロジェクトドキュメント自動生成スキル
