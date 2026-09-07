@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pleasanter Script Deploy"
+  short_description: ".env前提のPleasanterスクリプト反映と実画面検証手順"
+  default_prompt: "Pleasanterサイトへクライアントスクリプトを反映し、.envの設定、API、ブラウザ実画面で動作確認してください。"

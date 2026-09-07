@@ -1,0 +1,4 @@
+interface:
+  display_name: "AWS料金確認"
+  short_description: "ReadOnly AWS CLIで費用推移とスパイク原因を安全に調査"
+  default_prompt: "Use $aws-cost-audit to inspect recent AWS costs, identify spikes and causes, and update the project cost graph safely."

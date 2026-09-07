@@ -1,0 +1,4 @@
+interface:
+  display_name: "Internal Doc Authoring"
+  short_description: "Create clear, consistent internal documents and HTML"
+  default_prompt: "Use $internal-doc-authoring to create a clear internal document."

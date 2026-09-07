@@ -1,0 +1,27 @@
+# Private working files
+/_*/
+.env
+.env.*
+!.env.example
+*.local
+*.log
+
+# Credentials and private keys
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.json
+secrets.json
+
+# Local agent and editor configuration
+/.agents/
+/.claude/
+/.codex/
+/.idea/
+/.vscode/
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

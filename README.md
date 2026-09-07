@@ -2,13 +2,30 @@
 
 このリポジトリは、Claude Code / OpenAI Codex で使うための Agent Skills を置くためのものです。
 
-## Codex での設定（超シンプル）
+## Skills
 
-- ユーザー単位: `$CODEX_HOME/skills/<skill-name>/SKILL.md`（macOS/Linux の既定: `~/.codex/skills`）
-- プロジェクト単位: `<repo>/.codex/skills/<skill-name>/SKILL.md`
-- 反映: Codex を再起動
+- [`aws-cdk-cloudformation-design`](./aws-cdk-cloudformation-design/)
+- [`aws-cli-operations`](./aws-cli-operations/)
+- [`aws-cost-audit`](./aws-cost-audit/)
+- [`cognitive-rhythm-writing`](./cognitive-rhythm-writing/)（[出典](./cognitive-rhythm-writing/SOURCE.md)）
+- [`de-ai-ui`](./de-ai-ui/)
+- [`generate-docs`](./generate-docs/)
+- [`gcloud-cli-operations`](./gcloud-cli-operations/)
+- [`git-daily-operations`](./git-daily-operations/)
+- [`internal-doc-authoring`](./internal-doc-authoring/)
+- [`japanese-tech-writing`](./japanese-tech-writing/)（[出典](./japanese-tech-writing/SOURCE.md)）
+- [`pleasanter-script-deploy`](./pleasanter-script-deploy/)
+- [`prepare-public-release-docs`](./prepare-public-release-docs/)
+- [`system-deploy-check`](./system-deploy-check/)
+- [`system-design`](./system-design/)
 
-## Claude Code での設定（超シンプル）
+## Codex での設定
+
+- ユーザー単位: `$HOME/.agents/skills/<skill-name>/SKILL.md`
+- プロジェクト単位: `<repo>/.agents/skills/<skill-name>/SKILL.md`
+- 反映されない場合: Codex を再起動
+
+## Claude Code での設定
 
 - プロジェクト単位: `<repo>/.claude/skills/<skill-name>/SKILL.md`
 - ユーザー単位: Claude Code plugin として `skills/<skill-name>/SKILL.md` を同梱し、`/plugin install` でインストール

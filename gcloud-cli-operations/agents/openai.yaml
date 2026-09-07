@@ -1,0 +1,4 @@
+interface:
+  display_name: "Google Cloud CLI Operations"
+  short_description: "Safely inspect and update Google Cloud with gcloud CLI"
+  default_prompt: "Use $gcloud-cli-operations to inspect and safely update Google Cloud resources with explicit authentication."

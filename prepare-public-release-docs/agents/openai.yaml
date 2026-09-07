@@ -1,0 +1,4 @@
+interface:
+  display_name: "公開前ドキュメント準備"
+  short_description: "READMEと公開対象ファイルの情報漏えい・混入を事前に防ぐ"
+  default_prompt: "Use $prepare-public-release-docs to prepare this repository for a safe public release."

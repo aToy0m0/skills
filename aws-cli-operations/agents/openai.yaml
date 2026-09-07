@@ -1,0 +1,4 @@
+interface:
+  display_name: "AWS CLI Operations"
+  short_description: "AWS CLIを安全に調査・変更・検証する個人運用スキル"
+  default_prompt: "Use $aws-cli-operations to inspect AWS safely with default, authenticate admin only for requested changes, and verify the result."

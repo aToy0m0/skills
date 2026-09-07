@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>社内資料HTMLワイヤーフレーム</title>
+<style>
+:root{color-scheme:light dark;--ground:#f4f4f0;--surface:#fff;--surface-2:#ecece6;--ink:#16181a;--ink-soft:#4a4c48;--ink-mute:#74766e;--rule:#dcdcd3;--rule-strong:#c3c3b8;--accent:#a8850a;--accent-bg:#f2e6b8;--pos:#2c6b50;--pos-bg:#dcebe2;--warn:#8a5a12;--warn-bg:#f3e6cf;--neg:#93382a;--neg-bg:#fadfe4;--sans:"Segoe UI Variable Text","Segoe UI","Yu Gothic UI","Noto Sans JP",sans-serif;--mono:"Cascadia Code","Cascadia Mono",Consolas,monospace;--measure:68ch;--wide:78rem}
+@media(prefers-color-scheme:dark){:root{--ground:#121311;--surface:#1a1b19;--surface-2:#232420;--ink:#ecece5;--ink-soft:#c2c3ba;--ink-mute:#8f9088;--rule:#2d2f2a;--rule-strong:#414339;--accent:#dcb63f;--accent-bg:#332c11;--pos:#74c39c;--pos-bg:#16281f;--warn:#d4a24f;--warn-bg:#2d2413;--neg:#d98a76;--neg-bg:#34202a}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--ground)}body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.8;-webkit-font-smoothing:antialiased}
+#idw-doc{min-height:100vh;word-break:auto-phrase;line-break:strict;overflow-wrap:break-word}
+#idw-doc *{box-sizing:border-box}#idw-doc h1,#idw-doc h2,#idw-doc h3,#idw-doc h4,#idw-doc p,#idw-doc ul,#idw-doc ol,#idw-doc figure,#idw-doc pre{margin:0}
+#idw-doc .idw-page{max-width:var(--wide);margin:0 auto;padding:clamp(1.25rem,4vw,3.5rem) clamp(1.1rem,4vw,3rem) 6rem;display:flex;flex-direction:column;gap:clamp(2.5rem,5vw,4rem)}
+#idw-doc .idw-masthead{display:flex;flex-direction:column;gap:1.4rem;padding-bottom:1rem}
+#idw-doc h1{font-size:clamp(1.9rem,5.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;font-weight:700;max-width:25ch;text-wrap:balance}
+#idw-doc .idw-subtitle{font-size:1.1875rem;line-height:1.6;color:var(--ink-soft);max-width:var(--measure)}
+#idw-doc .idw-content{display:flex;flex-direction:column;gap:clamp(2.5rem,5vw,4rem);min-width:0}
+#idw-doc .idw-part{border-left:3px solid var(--ink);border-bottom:2px solid var(--ink);padding:0 0 .55rem .75rem;font-size:clamp(1.45rem,3vw,1.875rem);font-weight:700;line-height:1.3;scroll-margin-top:1.5rem}
+#idw-doc .idw-part span{font-size:.72em;color:var(--ink-mute);margin-right:.65rem}
+#idw-doc section{display:flex;flex-direction:column;gap:1.1rem;scroll-margin-top:1.5rem}
+#idw-doc .idw-sec-head{display:flex;align-items:baseline;gap:.75rem;border-bottom:1px solid var(--rule-strong);padding-bottom:.5rem}
+#idw-doc .idw-tag{font-size:.8125rem;color:var(--ink-mute);letter-spacing:.08em}
+#idw-doc h2{font-size:1.4375rem;line-height:1.35;letter-spacing:-.015em;text-wrap:balance}#idw-doc h3{font-size:1.1875rem;line-height:1.45;margin-top:.5rem}#idw-doc h4{font-size:1rem;line-height:1.55}
+#idw-doc p,#idw-doc li{max-width:var(--measure)}#idw-doc ul,#idw-doc ol{display:flex;flex-direction:column;gap:.45rem;padding-left:1.35rem}#idw-doc ul{list-style:square}#idw-doc li::marker{color:var(--ink-mute)}
+#idw-doc a{color:var(--ink);text-underline-offset:.2em;text-decoration-color:var(--accent)}#idw-doc code{font-family:var(--mono);font-size:.875em;background:var(--surface-2);border-radius:3px;padding:.1em .35em}
+#idw-doc .idw-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem}
+#idw-doc .idw-card{background:var(--surface);border-radius:4px;padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem}
+#idw-doc .idw-card-label{font-size:.72rem;letter-spacing:.1em;color:var(--accent)}#idw-doc .idw-card p,#idw-doc .idw-card li{font-size:.8125rem;line-height:1.7;color:var(--ink-soft)}
+#idw-doc .idw-crest{display:flex;flex-direction:column;gap:.4rem;margin:.4rem 0}#idw-doc .idw-crest p{line-height:1.8}#idw-doc .idw-crest .idw-hit{font-size:1.0625rem;font-weight:700;line-height:1.6;max-width:40ch}
+#idw-doc figure{display:flex;flex-direction:column;gap:.6rem}#idw-doc .idw-fig-body{background:var(--surface);border-radius:4px;padding:1rem;overflow-x:auto}#idw-doc figure svg{display:block;width:100%;min-width:35rem;max-width:935px;height:auto;margin:auto}#idw-doc figcaption{font-size:.8125rem;color:var(--ink-mute);max-width:var(--measure)}
+#idw-doc .idw-box{fill:var(--surface-2);stroke:var(--rule-strong)}#idw-doc .idw-box-a{fill:var(--accent-bg);stroke:var(--accent)}#idw-doc .idw-box-p{fill:var(--pos-bg);stroke:var(--pos)}#idw-doc .idw-line{stroke:var(--ink-soft);stroke-width:1.5;fill:none}#idw-doc .idw-svg-text{font-family:var(--sans);font-size:13px;fill:var(--ink)}#idw-doc .idw-svg-small{font-family:var(--sans);font-size:11px;fill:var(--ink-soft)}
+#idw-doc .idw-steps{list-style:none;padding:0;background:var(--surface);border-radius:4px;counter-reset:step;gap:0}#idw-doc .idw-steps>li{counter-increment:step;display:grid;grid-template-columns:3.3rem 1fr;gap:.2rem 1rem;padding:1.1rem 1.3rem;border-bottom:1px solid var(--rule);max-width:none}#idw-doc .idw-steps>li:last-child{border:0}#idw-doc .idw-steps>li::before{content:"STEP " counter(step);grid-row:1/span 2;font-size:.65rem;letter-spacing:.06em;color:var(--accent);white-space:nowrap}#idw-doc .idw-steps p{grid-column:2;font-size:.8125rem;color:var(--ink-soft)}
+#idw-doc .idw-callout{background:var(--pos-bg);border-radius:4px;padding:1rem 1.25rem;display:flex;flex-direction:column;gap:.45rem}#idw-doc .idw-callout.idw-warn{background:var(--neg-bg)}#idw-doc .idw-callout-label{font-size:.72rem;letter-spacing:.1em;color:var(--ink-mute)}#idw-doc .idw-callout p{font-size:.8125rem;line-height:1.7}
+#idw-doc .idw-table-wrap{overflow-x:auto;background:var(--surface);border-radius:4px}#idw-doc table{width:100%;border-collapse:collapse;font-size:.8125rem;line-height:1.65;min-width:42rem}#idw-doc th{text-align:left;color:var(--ink-mute);padding:.75rem 1rem;background:var(--surface-2);border-bottom:1px solid var(--rule-strong);white-space:nowrap}#idw-doc td{padding:.7rem 1rem;border-bottom:1px solid var(--rule);vertical-align:top}#idw-doc tr:last-child td{border:0}
+#idw-doc pre{background:var(--surface-2);border-radius:4px;padding:1rem 1.25rem;overflow:auto;font-family:var(--mono);font-size:.8125rem;line-height:1.7}
+#idw-toc-btn{position:fixed;top:.7rem;right:.7rem;z-index:60;font:inherit;font-size:.72rem;padding:.5rem .65rem;color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:3px;cursor:pointer}
+#idw-toc{position:fixed;top:2.9rem;right:.7rem;z-index:55;width:min(19rem,calc(100vw - 1.4rem));max-height:calc(100vh - 4.2rem);overflow:auto;background:var(--surface);border:1px solid var(--rule-strong);border-radius:3px;padding:0 0 .6rem;font-size:.78rem;line-height:1.5}#idw-toc[hidden]{display:none}
+#idw-doc .idw-toc-bar{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;background:var(--surface);padding:.45rem .5rem .45rem 1rem;font-size:.7rem;letter-spacing:.08em;color:var(--ink-mute)}#idw-doc .idw-toc-actions button{font:inherit;color:var(--ink-mute);background:none;border:1px solid transparent;padding:.25rem .4rem;cursor:pointer}
+#idw-toc a{display:block;text-decoration:none;color:var(--ink-soft);padding:.28rem 1rem}#idw-toc a[aria-current="true"]{font-weight:700;color:var(--ink)}#idw-toc .idw-lv0{font-weight:700;color:var(--ink);margin:.8rem .55rem .2rem;padding:.25rem .45rem .35rem;border-bottom:1px solid var(--rule-strong)}#idw-toc .idw-lv1{padding-left:1.5rem}#idw-toc .idw-lv2{padding-left:2.7rem;font-size:.74rem;color:var(--ink-mute)}
+#idw-doc.idw-pinned{padding-right:20.4rem}#idw-doc.idw-pinned #idw-toc{top:0;right:0;bottom:0;height:100vh;max-height:none;border-radius:0;border-block:0;border-right:0}#idw-doc.idw-toc-open #idw-toc-btn{display:none}
+@media(max-width:60rem){#idw-doc.idw-pinned{padding-right:0}#idw-doc.idw-pinned #idw-toc{top:2.9rem;bottom:auto;height:auto;max-height:calc(100vh - 4.2rem);border:1px solid var(--rule-strong);border-radius:3px}}
+@media(max-width:34rem){#idw-doc .idw-steps>li{grid-template-columns:1fr}#idw-doc .idw-steps>li::before,#idw-doc .idw-steps p{grid-column:1;grid-row:auto}#idw-doc .idw-page{padding-top:3.5rem}}
+@media print{#idw-toc,#idw-toc-btn{display:none!important}#idw-doc{padding:0!important}#idw-doc .idw-page{max-width:none;padding:0}}
+</style>
+</head>
+<body>
+<div id="idw-doc">
+<button id="idw-toc-btn" type="button" aria-expanded="true">☰ 目次</button>
+<nav id="idw-toc" aria-label="目次"><div class="idw-toc-bar"><span>目次</span><span class="idw-toc-actions"><button id="idw-toc-pin" type="button" title="右端に固定">─▸</button><button id="idw-toc-close" type="button" title="目次を隠す">✕</button></span></div></nav>
+<div class="idw-page">
+<header class="idw-masthead">
+<h1>対象を名指す資料タイトル</h1>
+<p class="idw-subtitle">読み手がこの資料から得る判断や、採用する方針を一文で示す</p>
+</header>
+<main class="idw-content">
+<div class="idw-part" id="idw-part-1"><span>I</span>前提と全体像</div>
+<section id="idw-overview">
+<div class="idw-sec-head"><span class="idw-tag">01</span><h2>最初の判断に必要な情報をまとめる</h2></div>
+<div class="idw-cards">
+<article class="idw-card"><span class="idw-card-label">WHO</span><h3>対象読者</h3><p>職種、担当業務、現在使っている道具を書く。</p></article>
+<article class="idw-card"><span class="idw-card-label">DECISION</span><h3>この資料で決めること</h3><p>読み終えた時点で可能になる判断を書く。</p></article>
+<article class="idw-card"><span class="idw-card-label">BOUNDARY</span><h3>対象外</h3><p>誤読を防ぐために必要な境界だけを書く。</p></article>
+</div>
+<div class="idw-crest"><p>現状から原因へ進む地の文を置く。</p><p class="idw-hit">章の結論を短く固定する。</p><p>次の具体へ戻す一文を置く。</p></div>
+</section>
+<section id="idw-structure">
+<div class="idw-sec-head"><span class="idw-tag">02</span><h2>構造は文章ではなく図で示す</h2></div>
+<figure><div class="idw-fig-body"><svg viewBox="0 0 760 190" role="img" aria-label="利用者、処理、保存先の関係を示すワイヤーフレーム">
+<rect x="20" y="45" width="180" height="90" rx="4" class="idw-box-p"/><text x="110" y="80" text-anchor="middle" class="idw-svg-text">利用者・入口</text><text x="110" y="105" text-anchor="middle" class="idw-svg-small">誰が、どこから</text>
+<path d="M200 90H285" class="idw-line"/><polygon points="285,90 274,84 274,96" fill="var(--ink-soft)"/>
+<rect x="290" y="45" width="180" height="90" rx="4" class="idw-box-a"/><text x="380" y="80" text-anchor="middle" class="idw-svg-text">処理・判断</text><text x="380" y="105" text-anchor="middle" class="idw-svg-small">何を確定するか</text>
+<path d="M470 90H555" class="idw-line"/><polygon points="555,90 544,84 544,96" fill="var(--ink-soft)"/>
+<rect x="560" y="45" width="180" height="90" rx="4" class="idw-box"/><text x="650" y="80" text-anchor="middle" class="idw-svg-text">保存・引き渡し</text><text x="650" y="105" text-anchor="middle" class="idw-svg-small">何が残るか</text>
+</svg></div><figcaption>図の結論だけを書く。本文と同じ説明を繰り返さない。</figcaption></figure>
+</section>
+<div class="idw-part" id="idw-part-2"><span>II</span>実行と判断</div>
+<section id="idw-steps">
+<div class="idw-sec-head"><span class="idw-tag">03</span><h2>作業は実行順に並べる</h2></div>
+<ol class="idw-steps"><li><h4>入口を確認する</h4><p>作業を始める画面、コマンド、権限を特定する。</p></li><li><h4>変更する</h4><p>一つのstepには一つの操作だけを書く。</p></li><li><h4>結果を検証する</h4><p>成功条件と失敗時の表示を確認する。</p></li></ol>
+<div class="idw-callout"><span class="idw-callout-label">補足</span><p>判断を助ける前提。本文より長くしない。</p></div>
+<div class="idw-callout idw-warn"><span class="idw-callout-label">禁止・失効</span><p>実行してはならない操作と、代わりに使う入口を書く。</p></div>
+</section>
+<section id="idw-compare">
+<div class="idw-sec-head"><span class="idw-tag">04</span><h2>並列情報は表で比較する</h2></div>
+<div class="idw-table-wrap"><table><thead><tr><th>選択肢</th><th>使う条件</th><th>制約</th></tr></thead><tbody><tr><td>方式A</td><td>条件を一文で書く</td><td>越えられない境界を書く</td></tr><tr><td>方式B</td><td>違いが出る条件を書く</td><td>未検証なら明示する</td></tr></tbody></table></div>
+<pre><code>実行するコマンドや設定値だけを置く
+placeholder-command --check</code></pre>
+</section>
+</main>
+</div>
+</div>
+<script>
+(()=>{const root=document.getElementById('idw-doc');const nav=document.getElementById('idw-toc');const btn=document.getElementById('idw-toc-btn');const pin=document.getElementById('idw-toc-pin');const close=document.getElementById('idw-toc-close');const nodes=[...root.querySelectorAll('.idw-part,section')];for(const node of nodes){const a=document.createElement('a');a.dataset.target=node.id;a.href='#'+node.id;if(node.classList.contains('idw-part')){a.className='idw-lv0';a.textContent=node.textContent.trim()}else{a.className='idw-lv1';a.textContent=node.querySelector('.idw-sec-head')?.textContent.trim()||node.id}nav.appendChild(a)}const entries=[...nav.querySelectorAll('a[data-target]')].map(a=>({a,el:root.querySelector('#'+CSS.escape(a.dataset.target))}));const open=on=>{nav.hidden=!on;root.classList.toggle('idw-toc-open',on);btn.setAttribute('aria-expanded',String(on))};btn.onclick=()=>open(true);close.onclick=()=>open(false);pin.onclick=()=>{const on=!root.classList.contains('idw-pinned');root.classList.toggle('idw-pinned',on);pin.textContent=on?'◂─':'─▸'};for(const e of entries)e.a.onclick=event=>{event.preventDefault();e.el.scrollIntoView({behavior:'smooth',block:'start'})};const sync=()=>{let active=entries[0];for(const e of entries)if(e.el.getBoundingClientRect().top<=140)active=e;for(const e of entries)e.a.setAttribute('aria-current',e===active?'true':'false')};addEventListener('scroll',sync,{passive:true,capture:true});open(innerWidth>=720);sync()})();
+</script>
+</body>
+</html>

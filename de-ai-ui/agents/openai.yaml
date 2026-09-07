@@ -1,0 +1,4 @@
+interface:
+  display_name: "UIの脱AI臭"
+  short_description: "AI生成にありがちな冗長な情報構成と装飾を避けるUI設計規範"
+  default_prompt: "$de-ai-ui を使って、この画面からAI生成らしい冗長さを取り除いてください。"
